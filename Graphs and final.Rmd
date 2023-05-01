@@ -1,0 +1,66 @@
+---
+title: "Grpahs and the final"
+author: "Juliana Salgado"
+date: "2023-04-26"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("tidyverse")
+
+library("readxl")
+
+Movie <- read_excel("C:/Users/salga/Downloads/final.xlsx", 
+    sheet = "the whole thing")
+
+#scatterplot of awards and nomination
+ggplot(Movie,aes(x=Nominations,y=Awards))+geom_point(aes(colour=Genre))+labs(x='Nominations',y='Awards',title = "Awards vs Nominations")
+
+
+#Boxplot of nominations
+
+ggplot(Movie,aes(Nominations))+geom_boxplot(aes(colour=Genre))
+
+
+
+
+
+#Boxplot of nominations
+
+ggplot(Movie,aes(Awards))+geom_boxplot(aes(colour=Genre))
+
+
+
+#Boxplot of Ratings
+
+ggplot(Movie,aes(Rating))+geom_boxplot(aes(colour=Genre))
+
+#Bar grpah of ratings
+ggplot(Movie,aes(Rating))+geom_bar(aes(colour=Genre))
+
+
+#find percentage:
+
+perce<-Movie$Awards/Movie$Nominations
+Movie['Percentage']<-perce
+ggplot(Movie,aes(Percentage))+geom_bar(aes(colour=Genre))+labs(title = "Percentage of Awrds ")
+
+
+
+
+#experiment???
+library(dplyr)
+
+target <- c(Movie$Nominations>100)
+
+newnom<- filter(Movie, Nominations %in% target)
+
+
+
+```
+
+
