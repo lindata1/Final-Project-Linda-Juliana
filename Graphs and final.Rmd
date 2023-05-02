@@ -1,6 +1,6 @@
 ---
 title: "Grpahs and the final"
-author: "Juliana Salgado"
+author: "Juliana Salgado, Linda Ta"
 date: "2023-04-26"
 output: pdf_document
 ---
